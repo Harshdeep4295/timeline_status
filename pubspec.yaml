@@ -1,8 +1,8 @@
 name: timeline_status
-description: A new Flutter package project.
+description: To display status with timeline
 version: 0.0.1
-author:
-homepage:
+author: Harshdeep Singh<Harshdeeps878@gmail.com>
+homepage: https://github.com/Harshdeep4295/timeline_status
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
