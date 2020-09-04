@@ -4,14 +4,29 @@ import 'package:flutter/material.dart';
 import 'package:timeline_status/app_assest.dart';
 
 class StatusTime {
+  /*
+    The getTimeline widget will give widget in timeline format
+    statuses - list of strings to be displayed below counter
+    currentPoistion - to display the current position with different background 
+    currentStepNumberTextColor - counter color for current postion
+    currentStepBackground - current counter background color 
+    activatedStepBackground - the background color of the step already passed
+    activatedStepBackground - the counter text color of the step already passed
+    inActivatedStepBackground - the background color of the step next of current
+    inActivatedStepBackground - the counter text color of the step next of current
+    height - display height of the widget by default 70 us given
+    wholePadding - EdgeInsets variable to give padding
+    backgroundColor - background color of whole widget
+  */
   static Widget getTimeline({
     @required List<String> statuses,
     @required int currentPosition,
-    Color currentColorIndicator = AppColors.redAccent,
-    Color disabledIndicator = AppColors.whiteFive,
-    Color activatedIndicator = AppColors.sunflowerYellow,
-    Color currentText = AppColors.white,
-    Color otherText = AppColors.black,
+    Color currentStepBackground = AppColors.sunflowerYellow,
+    Color currentStepNumberTextColor = AppColors.black,
+    Color activatedStepBackground = AppColors.sunflowerYellow,
+    Color activatedStepNumberTextColor = AppColors.white,
+    Color inActivatedStepBackground = AppColors.redAccent,
+    Color inActivatedStepNumberTextColor = AppColors.sunflowerYellow,
     double height = 70,
     EdgeInsets wholePadding =
         const EdgeInsets.only(top: 15, left: 10, right: 10),
@@ -39,18 +54,18 @@ class StatusTime {
                         Divider(
                           color:
                               currentPosition > 0 && currentPosition > position
-                                  ? activatedIndicator
-                                  : disabledIndicator,
+                                  ? activatedStepBackground
+                                  : inActivatedStepBackground,
                           thickness: 2,
-                          indent: position == 0 ? 60 : 0,
-                          endIndent: position == statuses.length - 1 ? 60 : 0,
+                          indent: position == 0 ? 50 : 0,
+                          endIndent: position == statuses.length - 1 ? 50 : 0,
                         ),
                         Visibility(
                           visible: position == currentPosition,
                           child: Divider(
-                            color: activatedIndicator,
+                            color: activatedStepBackground,
                             thickness: 2,
-                            indent: position == 0 ? 50 : 0,
+                            indent: 0,
                             endIndent: 50,
                           ),
                         ),
@@ -62,20 +77,25 @@ class StatusTime {
                               width: 30,
                               decoration: BoxDecoration(
                                 color: currentPosition == position
-                                    ? currentColorIndicator
+                                    ? currentStepBackground
                                     : (currentPosition < position
-                                        ? disabledIndicator
-                                        : activatedIndicator),
+                                        ? inActivatedStepBackground
+                                        : activatedStepBackground),
                                 borderRadius: BorderRadius.circular(30),
                               ),
                               child: Center(
-                                child: Text((position + 1).toString(),
-                                    style: TextStyle(
-                                      color: position == currentPosition
-                                          ? AppColors.white
-                                          : AppColors.black,
-                                      fontWeight: FontWeight.w700,
-                                    )),
+                                child: Text(
+                                  (position + 1).toString(),
+                                  style: TextStyle(
+                                    color: position == currentPosition
+                                        ? currentStepNumberTextColor
+                                        : (currentPosition < position
+                                            ? inActivatedStepNumberTextColor
+                                            : activatedStepNumberTextColor),
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
                               ),
                             ),
                           ],
