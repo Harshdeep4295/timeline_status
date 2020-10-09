@@ -84,14 +84,14 @@ class _MyHomePageState extends State<MyHomePage> {
             Visibility(
               visible: showTimeline,
               // give list of string
-              child: StatusTime.getTimeline(
+              child: TimeLineStatus(
                 statuses: [
                   'Step 1',
                   'Step 2',
                   'Step 3',
                   'Step 4',
                 ],
-                currentPosition: 1,
+                currentPosition: 0,
               ),
             ),
             SizedBox(

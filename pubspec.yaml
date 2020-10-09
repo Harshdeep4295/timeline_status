@@ -1,6 +1,6 @@
 name: timeline_status
-description: To display status with timeline. The widget will contain the step indicator with the status text given below. It best used with more than three status. To display different indicator different colors can be used as can see in case of example.
-version: 0.0.2
+description: To display status timeline, a widget will contain the step indicator with the status text given. To display different indicator different colors can be used as shown in example.
+version: 0.0.3
 author: Harshdeep Singh<Harshdeeps878@gmail.com>
 homepage: https://github.com/Harshdeep4295/timeline_status
 
@@ -20,7 +20,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
-
   # To add assets to your package, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
@@ -31,7 +30,6 @@ flutter:
   #
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
-
   # To add custom fonts to your package, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a

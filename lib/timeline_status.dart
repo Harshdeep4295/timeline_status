@@ -3,8 +3,7 @@ library timeline_status;
 import 'package:flutter/material.dart';
 import 'package:timeline_status/app_assest.dart';
 
-class StatusTime {
-  /*
+/*
     The getTimeline widget will give widget in timeline format
     statuses - list of strings to be displayed below counter
     currentPoistion - to display the current position with different background 
@@ -18,20 +17,38 @@ class StatusTime {
     wholePadding - EdgeInsets variable to give padding
     backgroundColor - background color of whole widget
   */
-  static Widget getTimeline({
-    @required List<String> statuses,
-    @required int currentPosition,
-    Color currentStepBackground = AppColors.sunflowerYellow,
-    Color currentStepNumberTextColor = AppColors.black,
-    Color activatedStepBackground = AppColors.sunflowerYellow,
-    Color activatedStepNumberTextColor = AppColors.white,
-    Color inActivatedStepBackground = AppColors.redAccent,
-    Color inActivatedStepNumberTextColor = AppColors.sunflowerYellow,
-    double height = 70,
-    EdgeInsets wholePadding =
-        const EdgeInsets.only(top: 15, left: 10, right: 10),
-    Color backgroundColor = AppColors.white,
-  }) {
+class TimeLineStatus extends StatelessWidget {
+  List<String> statuses;
+  int currentPosition;
+  Color currentStepBackground,
+      currentStepNumberTextColor,
+      activatedStepBackground,
+      activatedStepNumberTextColor,
+      inActivatedStepBackground,
+      inActivatedStepNumberTextColor,
+      backgroundColor;
+  double height = 70;
+  EdgeInsets wholePadding;
+
+  TimeLineStatus({
+    @required this.statuses,
+    @required this.currentPosition,
+    this.currentStepBackground = AppColors.sunflowerYellow,
+    this.currentStepNumberTextColor = AppColors.black,
+    this.activatedStepBackground = AppColors.sunflowerYellow,
+    this.activatedStepNumberTextColor = AppColors.white,
+    this.inActivatedStepBackground = AppColors.redAccent,
+    this.inActivatedStepNumberTextColor = AppColors.sunflowerYellow,
+    this.height = 70,
+    this.wholePadding = const EdgeInsets.only(
+      top: 15,
+      left: 10,
+      right: 10,
+    ),
+    this.backgroundColor = AppColors.white,
+  });
+  @override
+  Widget build(BuildContext context) {
     return Container(
       color: backgroundColor,
       padding: wholePadding,
@@ -65,7 +82,7 @@ class StatusTime {
                           child: Divider(
                             color: activatedStepBackground,
                             thickness: 2,
-                            indent: 0,
+                            indent: position == 0 ? 50 : 0,
                             endIndent: 50,
                           ),
                         ),
@@ -73,8 +90,8 @@ class StatusTime {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Container(
-                              height: 30,
-                              width: 30,
+                              height: 40,
+                              width: 40,
                               decoration: BoxDecoration(
                                 color: currentPosition == position
                                     ? currentStepBackground
@@ -93,6 +110,7 @@ class StatusTime {
                                             ? inActivatedStepNumberTextColor
                                             : activatedStepNumberTextColor),
                                     fontWeight: FontWeight.w700,
+                                    fontSize: 18,
                                   ),
                                   textAlign: TextAlign.center,
                                 ),
@@ -117,18 +135,18 @@ class StatusTime {
       ),
     );
   }
+}
 
-  static List<T> _map<T>({@required List list, @required Function handler}) {
-    List<T> result = [];
-    if (list != null) {
-      if (list.length > 0) {
-        if (handler != null) {
-          for (var i = 0; i < list.length; i++) {
-            result.add(handler(i, list[i]));
-          }
+List<T> _map<T>({@required List list, @required Function handler}) {
+  List<T> result = [];
+  if (list != null) {
+    if (list.length > 0) {
+      if (handler != null) {
+        for (var i = 0; i < list.length; i++) {
+          result.add(handler(i, list[i]));
         }
       }
     }
-    return result;
   }
+  return result;
 }
