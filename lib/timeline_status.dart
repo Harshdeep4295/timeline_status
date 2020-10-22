@@ -1,7 +1,6 @@
 library timeline_status;
 
 import 'package:flutter/material.dart';
-import 'package:timeline_status/app_assest.dart';
 
 const sunflowerYellow = const Color(0xfffad200);
 const white = const Color(0x0ffffffff);
