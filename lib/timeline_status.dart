@@ -3,6 +3,13 @@ library timeline_status;
 import 'package:flutter/material.dart';
 import 'package:timeline_status/app_assest.dart';
 
+const sunflowerYellow = const Color(0xfffad200);
+const white = const Color(0x0ffffffff);
+const warmGrey = const Color(0xFF777777);
+const black = const Color(0xFF000000);
+const whiteFive = Color(0xFFDDDDDD);
+const redAccent = Color(0xFFFF5252);
+
 /*
     The getTimeline widget will give widget in timeline format
     statuses - list of strings to be displayed below counter
@@ -33,19 +40,19 @@ class TimeLineStatus extends StatelessWidget {
   TimeLineStatus({
     @required this.statuses,
     @required this.currentPosition,
-    this.currentStepBackground = AppColors.sunflowerYellow,
-    this.currentStepNumberTextColor = AppColors.black,
-    this.activatedStepBackground = AppColors.sunflowerYellow,
-    this.activatedStepNumberTextColor = AppColors.white,
-    this.inActivatedStepBackground = AppColors.redAccent,
-    this.inActivatedStepNumberTextColor = AppColors.sunflowerYellow,
+    this.currentStepBackground = sunflowerYellow,
+    this.currentStepNumberTextColor = black,
+    this.activatedStepBackground = sunflowerYellow,
+    this.activatedStepNumberTextColor = white,
+    this.inActivatedStepBackground = redAccent,
+    this.inActivatedStepNumberTextColor = sunflowerYellow,
     this.height = 70,
     this.wholePadding = const EdgeInsets.only(
       top: 15,
       left: 10,
       right: 10,
     ),
-    this.backgroundColor = AppColors.white,
+    this.backgroundColor = white,
   });
   @override
   Widget build(BuildContext context) {
@@ -149,4 +156,14 @@ List<T> _map<T>({@required List list, @required Function handler}) {
     }
   }
   return result;
+}
+
+class HexColor {
+  /// String is in the format "aabbcc" or "ffaabbcc" with an optional leading "#".
+  static Color fromHex(String hexString) {
+    final buffer = StringBuffer();
+    if (hexString.length == 6 || hexString.length == 7) buffer.write('ff');
+    buffer.write(hexString.replaceFirst('#', ''));
+    return Color(int.parse(buffer.toString(), radix: 16));
+  }
 }

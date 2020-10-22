@@ -1,4 +1,8 @@
-## [0.0.4] - 2020-09-04.
+## [0.0.5] - 2020-10-22.
+
+* Code refactored - created widget instead of function returing widget. 
+
+## [0.0.4] - 2020-10-04.
 
 * Read.md changes.
 
