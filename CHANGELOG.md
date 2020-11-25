@@ -1,3 +1,7 @@
+## [0.0.6] - 2020-11-25.
+
+* new params added fontsize for points display, and for circular widget radius widget is added.
+
 ## [0.0.6] - 2020-10-22.
 
 * Code refactored - created widget instead of function returing widget. 

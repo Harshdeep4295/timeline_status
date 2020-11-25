@@ -24,19 +24,20 @@ const redAccent = Color(0xFFFF5252);
     backgroundColor - background color of whole widget
   */
 class TimeLineStatus extends StatelessWidget {
-  List<String> statuses;
-  int currentPosition;
-  Color currentStepBackground,
+  final List<String> statuses;
+  final int currentPosition;
+  final Color currentStepBackground,
       currentStepNumberTextColor,
       activatedStepBackground,
       activatedStepNumberTextColor,
       inActivatedStepBackground,
       inActivatedStepNumberTextColor,
       backgroundColor;
-  double height = 70;
-  EdgeInsets wholePadding;
-
-  TimeLineStatus({
+  final double height;
+  final EdgeInsets wholePadding;
+  final double textSize;
+  final double pointCircleRadius;
+  const TimeLineStatus({
     @required this.statuses,
     @required this.currentPosition,
     this.currentStepBackground = sunflowerYellow,
@@ -52,6 +53,8 @@ class TimeLineStatus extends StatelessWidget {
       right: 10,
     ),
     this.backgroundColor = white,
+    this.textSize = 18,
+    this.pointCircleRadius = 25,
   });
   @override
   Widget build(BuildContext context) {
@@ -96,15 +99,16 @@ class TimeLineStatus extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Container(
-                              height: 40,
-                              width: 40,
+                              height: pointCircleRadius + 5,
+                              width: pointCircleRadius + 5,
                               decoration: BoxDecoration(
                                 color: currentPosition == position
                                     ? currentStepBackground
                                     : (currentPosition < position
                                         ? inActivatedStepBackground
                                         : activatedStepBackground),
-                                borderRadius: BorderRadius.circular(30),
+                                borderRadius:
+                                    BorderRadius.circular(pointCircleRadius),
                               ),
                               child: Center(
                                 child: Text(
@@ -116,7 +120,7 @@ class TimeLineStatus extends StatelessWidget {
                                             ? inActivatedStepNumberTextColor
                                             : activatedStepNumberTextColor),
                                     fontWeight: FontWeight.w700,
-                                    fontSize: 18,
+                                    fontSize: textSize,
                                   ),
                                   textAlign: TextAlign.center,
                                 ),
@@ -130,6 +134,7 @@ class TimeLineStatus extends StatelessWidget {
                       statuses[position],
                       softWrap: true,
                       textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: textSize),
                       maxLines: 2,
                     ),
                   ],
