@@ -51,19 +51,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
   bool showTimeline = false;
-  void _incrementCounter() {
-    setState(() {
-      showTimeline = true;
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +85,12 @@ class _MyHomePageState extends State<MyHomePage> {
             SizedBox(
               height: 20,
             ),
-            RaisedButton(
+            ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(
+                  Colors.grey[600],
+                ),
+              ),
               onPressed: () {
                 setState(() {
                   showTimeline = true;
@@ -105,7 +98,12 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: Text('Show Timeline '),
             ),
-            RaisedButton(
+            ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(
+                  Colors.grey[600],
+                ),
+              ),
               onPressed: () {
                 setState(() {
                   showTimeline = false;

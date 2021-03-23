@@ -1,6 +1,6 @@
 name: timeline_status
 description: To display status timeline, a widget will contain the step indicator with the status text given. To display different indicator different colors can be used as shown in example.
-version: 0.0.7
+version: 0.0.8
 author: Harshdeep Singh<Harshdeeps878@gmail.com>
 homepage: https://github.com/Harshdeep4295/timeline_status
 

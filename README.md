@@ -11,5 +11,6 @@ This plugin is used to display the statuses in horizontal widget.
 - With default color scheme just add status and current indicator you want to display 
 
     TimeLineStatus( 
-        statuses: [ 'Step 1', 'Step 2', 'Step 3', 'Step 4', ], currentPosition: 1, 
+        statuses: [ 'Step 1', 'Step 2', 'Step 3', 'Step 4', ], 
+        currentPosition: 1, 
         ),

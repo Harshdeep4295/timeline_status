@@ -1,4 +1,7 @@
-## [0.0.6] - 2020-11-25.
+## [0.0.8] - 2021-03-23.
+
+* Migration done for flutter 2.
+## [0.0.7] - 2020-11-25.
 
 * new params added fontsize for points display, and for circular widget radius widget is added.
 
