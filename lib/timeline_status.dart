@@ -38,8 +38,8 @@ class TimeLineStatus extends StatelessWidget {
   final double textSize;
   final double pointCircleRadius;
   const TimeLineStatus({
-    @required this.statuses,
-    @required this.currentPosition,
+    required this.statuses,
+    required this.currentPosition,
     this.currentStepBackground = sunflowerYellow,
     this.currentStepNumberTextColor = black,
     this.activatedStepBackground = sunflowerYellow,
@@ -142,21 +142,17 @@ class TimeLineStatus extends StatelessWidget {
               ),
             );
           },
-        ),
+        ) as List<Widget>,
       ),
     );
   }
 }
 
-List<T> _map<T>({@required List list, @required Function handler}) {
-  List<T> result = [];
-  if (list != null) {
-    if (list.length > 0) {
-      if (handler != null) {
-        for (var i = 0; i < list.length; i++) {
-          result.add(handler(i, list[i]));
-        }
-      }
+List<T?> _map<T>({required List list, required Function handler}) {
+  List<T?> result = [];
+  if (list.length > 0) {
+    for (var i = 0; i < list.length; i++) {
+      result.add(handler(i, list[i]));
     }
   }
   return result;
