@@ -62,7 +62,7 @@ class TimeLineStatus extends StatelessWidget {
       color: backgroundColor,
       padding: wholePadding,
       child: Row(
-        children: _map(
+        children: _map<Widget>(
           list: statuses,
           handler: (position, item) {
             return Expanded(
